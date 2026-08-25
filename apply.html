@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adoption Application | Whiskers & Homes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🐾 Whiskers & Homes
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#cats">Our Cats</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#about">About Us</a>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="application-section">
+
+        <div class="application-heading">
+
+            <p class="small-title">
+                🐾 ADOPTION APPLICATION
+            </p>
+
+            <h1>
+                Give a Cat a Forever Home ❤️
+            </h1>
+
+            <p>
+                Tell us a little about yourself so we can make
+                sure you and your chosen cat are a good match.
+            </p>
+
+        </div>
+
+
+        <form id="adoption-form">
+
+            <div class="selected-cat-box">
+
+                <p>
+                    You are applying to adopt:
+                </p>
+
+                <h2 id="selected-cat">
+                    Loading cat... 🐱
+                </h2>
+
+            </div>
+
+
+            <label for="applicant_name">
+                Full Name *
+            </label>
+
+            <input
+                type="text"
+                id="applicant_name"
+                required
+            >
+
+
+            <label for="email">
+                Email *
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                required
+            >
+
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+            >
+
+
+            <label for="home_type">
+                What type of home do you live in?
+            </label>
+
+            <select id="home_type">
+
+                <option value="">
+                    Please select
+                </option>
+
+                <option value="Apartment">
+                    Apartment
+                </option>
+
+                <option value="Condominium">
+                    Condominium
+                </option>
+
+                <option value="Terrace House">
+                    Terrace House
+                </option>
+
+                <option value="Semi-D">
+                    Semi-D
+                </option>
+
+                <option value="Bungalow">
+                    Bungalow
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <label for="owns_or_rents">
+                Do you own or rent your home?
+            </label>
+
+            <select id="owns_or_rents">
+
+                <option value="">
+                    Please select
+                </option>
+
+                <option value="Own">
+                    Own
+                </option>
+
+                <option value="Rent">
+                    Rent
+                </option>
+
+            </select>
+
+
+            <label for="previous_cat_experience">
+                Have you owned a cat before?
+            </label>
+
+            <textarea
+                id="previous_cat_experience"
+                rows="4"
+                placeholder="Tell us about your previous experience with cats..."
+            ></textarea>
+
+
+            <label for="other_pets">
+                Do you currently have other pets?
+            </label>
+
+            <textarea
+                id="other_pets"
+                rows="4"
+                placeholder="Please tell us about your current pets..."
+            ></textarea>
+
+
+            <label for="reason">
+                Why would you like to adopt this cat? *
+            </label>
+
+            <textarea
+                id="reason"
+                rows="6"
+                required
+                placeholder="Tell us why you would like to adopt..."
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="submit-button"
+            >
+                ❤️ Submit Adoption Application
+            </button>
+
+
+            <p
+                id="form-message"
+                class="form-message"
+            ></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        🐾 Whiskers & Homes
+    </div>
+
+    <p>
+        Giving cats a second chance, one home at a time. ❤️
+    </p>
+
+</footer>
+
+
+<script type="module" src="apply.js"></script>
+
+</body>
+</html>
