@@ -1,60 +1,103 @@
-const cats = [
-    {
-        name: "Luna",
-        age: "3 years",
-        gender: "Female",
-        breed: "Domestic Longhair",
-        status: "Available"
-    },
+const SUPABASE_URL = "https://ikwfhhgtcxaxbvrnxsaj.supabase.co";
 
-    {
-        name: "Milo",
-        age: "2 years",
-        gender: "Male",
-        breed: "Domestic Shorthair",
-        status: "Available"
-    },
-
-    {
-        name: "Oreo",
-        age: "1 year",
-        gender: "Male",
-        breed: "Tuxedo",
-        status: "Available"
-    }
-];
+const SUPABASE_KEY = "sb_publishable_nXH6TntBNdXrxJWn0LDN2Q_3QxomvZt";
 
 
+// Connect to Supabase
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+// Get the cat container
 const container = document.getElementById("cat-container");
 
 
-cats.forEach(cat => {
+// Load cats from Supabase
+async function loadCats() {
 
-    const card = document.createElement("div");
+    container.innerHTML = "<p>Loading our cats... 🐱</p>";
 
-    card.className = "cat-card";
+    const { data, error } = await supabase
+        .from("cats")
+        .select("*")
+        .eq("status", "Available")
+        .order("created_at", { ascending: false });
 
-    card.innerHTML = `
-        <div class="cat-image">
-            🐱
-        </div>
 
-        <div class="cat-info">
+    if (error) {
 
-            <h3>${cat.name}</h3>
+        console.error("Supabase error:", error);
 
-            <p class="cat-details">
-                ${cat.age} • ${cat.gender}<br>
-                ${cat.breed}
+        container.innerHTML = `
+            <p>
+                Sorry, we couldn't load the cats right now. 🐱
             </p>
+        `;
 
-            <span class="status">
-                ${cat.status}
-            </span>
+        return;
+    }
 
-        </div>
-    `;
 
-    container.appendChild(card);
+    if (!data || data.length === 0) {
 
-});
+        container.innerHTML = `
+            <p>
+                No cats are currently available for adoption. ❤️
+            </p>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    data.forEach(cat => {
+
+        const card = document.createElement("div");
+
+        card.className = "cat-card";
+
+
+        const imageHTML = cat.image_url
+            ? `<img src="${cat.image_url}" alt="${cat.name}" style="width:100%; height:260px; object-fit:cover;">`
+            : `<div class="cat-image">🐱</div>`;
+
+
+        card.innerHTML = `
+
+            ${imageHTML}
+
+            <div class="cat-info">
+
+                <h3>${cat.name}</h3>
+
+                <p class="cat-details">
+                    ${cat.age || "Age unknown"}
+                    •
+                    ${cat.gender || "Unknown"}
+                    <br>
+                    ${cat.breed || "Mixed breed"}
+                </p>
+
+                <span class="status">
+                    ${cat.status}
+                </span>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+// Start loading cats
+loadCats();
