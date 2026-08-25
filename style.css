@@ -602,3 +602,70 @@ footer p {
     }
 
 }
+/* EXTRA MOBILE FIX FOR ADOPTION FORM */
+
+@media (max-width: 600px) {
+
+    .application-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 45px 15px;
+    }
+
+    .application-heading {
+        padding: 0 5px;
+    }
+
+    .application-heading h1 {
+        font-size: 28px;
+        line-height: 1.25;
+    }
+
+    .application-heading p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    #adoption-form {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    #adoption-form label {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    #adoption-form input,
+    #adoption-form select,
+    #adoption-form textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 13px;
+    }
+
+    #adoption-form textarea {
+        min-height: 100px;
+    }
+
+    .selected-cat-box {
+        padding: 18px 12px;
+    }
+
+    .selected-cat-box h2 {
+        font-size: 22px;
+    }
+
+    .submit-button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        font-size: 15px;
+    }
+
+}
