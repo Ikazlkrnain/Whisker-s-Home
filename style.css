@@ -470,11 +470,14 @@ footer p {
     }
 
 }
-/* ADOPTION APPLICATION */
+/* =========================================
+   ADOPTION APPLICATION
+   ========================================= */
 
 .application-section {
+    width: 100%;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
     padding: 80px 25px;
 }
 
@@ -485,6 +488,7 @@ footer p {
 
 .application-heading h1 {
     font-size: 42px;
+    line-height: 1.2;
     margin-bottom: 15px;
 }
 
@@ -492,14 +496,13 @@ footer p {
     color: #6d615b;
 }
 
-
 #adoption-form {
+    width: 100%;
     background: white;
     padding: 40px;
     border-radius: 25px;
     box-shadow: 0 8px 30px rgba(70, 50, 40, 0.08);
 }
-
 
 #adoption-form label {
     display: block;
@@ -508,24 +511,26 @@ footer p {
     font-weight: bold;
 }
 
-
 #adoption-form input,
 #adoption-form select,
 #adoption-form textarea {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     padding: 13px 15px;
     border: 1px solid #ddd0c9;
     border-radius: 10px;
+
     font-family: inherit;
     font-size: 15px;
     background: #fffaf7;
 }
 
-
 #adoption-form textarea {
     resize: vertical;
 }
-
 
 #adoption-form input:focus,
 #adoption-form select:focus,
@@ -534,8 +539,10 @@ footer p {
     border-color: #c47758;
 }
 
-
 .selected-cat-box {
+    width: 100%;
+    box-sizing: border-box;
+
     background: #fff1e9;
     padding: 20px;
     border-radius: 15px;
@@ -543,36 +550,38 @@ footer p {
     margin-bottom: 25px;
 }
 
-
 .selected-cat-box p {
     margin-bottom: 5px;
     color: #766963;
 }
 
-
 .selected-cat-box h2 {
     color: #8d5b48;
 }
 
-
 .submit-button {
+    display: block;
     width: 100%;
+    box-sizing: border-box;
+
     margin-top: 30px;
     padding: 15px;
+
     border: none;
     border-radius: 30px;
+
     background: #c47758;
     color: white;
+
     font-size: 16px;
     font-weight: bold;
+
     cursor: pointer;
 }
-
 
 .submit-button:hover {
     background: #a96147;
 }
-
 
 .form-message {
     text-align: center;
@@ -580,63 +589,52 @@ footer p {
     font-weight: bold;
 }
 
-
 .form-message.success {
     color: #47744e;
 }
-
 
 .form-message.error {
     color: #b44b4b;
 }
 
 
-@media (max-width: 600px) {
-
-    #adoption-form {
-        padding: 25px;
-    }
-
-    .application-heading h1 {
-        font-size: 32px;
-    }
-
-}
-/* EXTRA MOBILE FIX FOR ADOPTION FORM */
+/* =========================================
+   ADOPTION APPLICATION - MOBILE
+   ========================================= */
 
 @media (max-width: 600px) {
 
     .application-section {
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-        padding: 45px 15px;
+        padding: 35px 12px;
     }
 
     .application-heading {
-        padding: 0 5px;
+        margin-bottom: 25px;
     }
 
     .application-heading h1 {
         font-size: 28px;
         line-height: 1.25;
+        margin-bottom: 10px;
     }
 
     .application-heading p {
         font-size: 15px;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     #adoption-form {
         width: 100%;
-        box-sizing: border-box;
-        padding: 22px 18px;
+        padding: 22px 16px;
         border-radius: 18px;
     }
 
     #adoption-form label {
         font-size: 14px;
-        margin-top: 20px;
+        margin-top: 18px;
+        margin-bottom: 7px;
     }
 
     #adoption-form input,
@@ -644,9 +642,10 @@ footer p {
     #adoption-form textarea {
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
+        min-width: 0;
+
+        padding: 13px 12px;
         font-size: 16px;
-        padding: 13px;
     }
 
     #adoption-form textarea {
@@ -654,18 +653,22 @@ footer p {
     }
 
     .selected-cat-box {
-        padding: 18px 12px;
+        padding: 16px 12px;
+        margin-bottom: 20px;
     }
 
     .selected-cat-box h2 {
         font-size: 22px;
+        word-break: break-word;
+    }
+
+    .selected-cat-box p {
+        font-size: 14px;
     }
 
     .submit-button {
         width: 100%;
-        box-sizing: border-box;
         padding: 15px 10px;
         font-size: 15px;
     }
-
 }
