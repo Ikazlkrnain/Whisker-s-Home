@@ -6,7 +6,7 @@ const SUPABASE_URL =
 
 
 const SUPABASE_KEY =
-    "YOUR_PUBLISHABLE_KEY";
+    "sb_publishable_nXH6TntBNdXrxJWn0LDN2Q_3QxomvZt";
 
 
 const supabase = createClient(
