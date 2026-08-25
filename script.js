@@ -1,20 +1,19 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 const SUPABASE_URL = "https://ikwfhhgtcxaxbvrnxsaj.supabase.co";
 
-const SUPABASE_KEY = "sb_publishable_nXH6TntBNdXrxJWn0LDN2Q_3QxomvZt";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
 
 
-// Connect to Supabase
-const supabase = window.supabase.createClient(
+const supabase = createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
 
 
-// Get the cat container
 const container = document.getElementById("cat-container");
 
 
-// Load cats from Supabase
 async function loadCats() {
 
     container.innerHTML = "<p>Loading our cats... 🐱</p>";
@@ -68,7 +67,6 @@ async function loadCats() {
 
 
         card.innerHTML = `
-
             ${imageHTML}
 
             <div class="cat-info">
@@ -88,7 +86,6 @@ async function loadCats() {
                 </span>
 
             </div>
-
         `;
 
 
@@ -99,5 +96,4 @@ async function loadCats() {
 }
 
 
-// Start loading cats
 loadCats();
