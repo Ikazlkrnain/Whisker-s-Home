@@ -199,7 +199,23 @@ async function loadApplications() {
                 </p>
 
             </div>
+        <div class="application-actions">
 
+            <button
+                class="approve-button"
+                data-id="${application.id}"
+            >
+                ✅ Approve
+            </button>
+
+            <button
+                class="reject-button"
+                data-id="${application.id}"
+            >
+                ❌ Reject
+            </button>
+
+        </div>
 
             <div class="application-answer">
 
