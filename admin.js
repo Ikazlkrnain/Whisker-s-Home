@@ -123,9 +123,9 @@ async function loadApplications() {
 
                 </div>
 
-                <span class="application-status">
-                    Pending
-                </span>
+<span class="application-status">
+    ${escapeHTML(application.status || "Pending")}
+</span>
 
             </div>
 
