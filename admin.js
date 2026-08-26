@@ -291,7 +291,7 @@ async function updateApplicationStatus(id, status) {
 
 
 document.addEventListener("click", function (event) {
-
+console.log("CLICK DETECTED:", event.target);
     if (event.target.classList.contains("approve-button")) {
 
         const id =
