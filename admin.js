@@ -270,10 +270,26 @@ function escapeHTML(value) {
 
 async function updateApplicationStatus(id, status) {
 
-    const { error } = await supabase
+    const { data, error } = await supabase
         .from("applications")
         .update({ status: status })
-        .eq("id", id);
+        .eq("id", id)
+        .select();
+
+    console.log("UPDATE RESULT:", data);
+    console.log("UPDATE ERROR:", error);
+
+    if (error) {
+
+        console.error("Status update error:", error);
+
+        alert("Unable to update application status.");
+
+        return;
+    }
+
+    await loadApplications();
+}
 
 
     if (error) {
