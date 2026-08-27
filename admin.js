@@ -317,5 +317,9 @@ const {
 
 console.log("CURRENT USER:", user);
 
+supabase.auth.getUser().then(function(result) {
+    console.log("CURRENT USER:", result.data.user);
+    console.log("AUTH ERROR:", result.error);
+});
 
 loadApplications();
