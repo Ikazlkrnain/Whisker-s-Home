@@ -311,5 +311,11 @@ document.addEventListener("click", function (event) {
 
 });
 
+const {
+    data: { user }
+} = await supabase.auth.getUser();
+
+console.log("CURRENT USER:", user);
+
 
 loadApplications();
