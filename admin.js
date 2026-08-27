@@ -287,44 +287,11 @@ async function updateApplicationStatus(id, status) {
     await loadApplications();
 }
 
-    const { data, error } = await supabase
-        .from("applications")
-        .update({ status: status })
-        .eq("id", id)
-        .select();
-
-    console.log("UPDATE RESULT:", data);
-    console.log("UPDATE ERROR:", error);
-
-    if (error) {
-
-        console.error("Status update error:", error);
-
-        alert("Unable to update application status.");
-
-        return;
-    }
-
-    await loadApplications();
-}
-
-
-    if (error) {
-
-        console.error("Status update error:", error);
-
-        alert("Unable to update application status.");
-
-        return;
-    }
-
-
-    await loadApplications();
-}
-
 
 document.addEventListener("click", function (event) {
-console.log("CLICK DETECTED:", event.target);
+
+    console.log("CLICK DETECTED:", event.target);
+
     if (event.target.classList.contains("approve-button")) {
 
         const id =
