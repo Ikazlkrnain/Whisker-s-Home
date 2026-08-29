@@ -290,8 +290,7 @@ async function updateApplicationStatus(id, status) {
 
 document.addEventListener("click", function (event) {
 
-    console.log("CLICK DETECTED:", event.target);
-
+   
     if (event.target.classList.contains("approve-button")) {
 
         const id =
@@ -311,15 +310,5 @@ document.addEventListener("click", function (event) {
 
 });
 
-const {
-    data: { user }
-} = await supabase.auth.getUser();
-
-console.log("CURRENT USER:", user);
-
-supabase.auth.getUser().then(function(result) {
-    console.log("CURRENT USER:", result.data.user);
-    console.log("AUTH ERROR:", result.error);
-});
 
 loadApplications();
