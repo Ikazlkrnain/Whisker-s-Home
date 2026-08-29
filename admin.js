@@ -270,19 +270,52 @@ function escapeHTML(value) {
 
 async function updateApplicationStatus(id, status) {
 
-    const { error } = await supabase
-        .from("applications")
-        .update({ status: status })
-        .eq("id", id);
+    // Update application status
+    const { data: application, error: applicationError } =
+        await supabase
+            .from("applications")
+            .update({ status: status })
+            .eq("id", id)
+            .select()
+            .single();
 
-    if (error) {
+    if (applicationError) {
 
-        console.error("Status update error:", error);
+        console.error(
+            "Application update error:",
+            applicationError
+        );
 
         alert("Unable to update application status.");
 
         return;
     }
+
+
+    // If approved, mark the cat as adopted
+    if (status === "Approved" && application.cat_id) {
+
+        const { error: catError } =
+            await supabase
+                .from("cats")
+                .update({ status: "Adopted" })
+                .eq("id", application.cat_id);
+
+        if (catError) {
+
+            console.error(
+                "Cat status update error:",
+                catError
+            );
+
+            alert(
+                "Application was approved, but the cat status could not be updated."
+            );
+
+            return;
+        }
+    }
+
 
     await loadApplications();
 }
