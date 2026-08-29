@@ -317,31 +317,30 @@ async function updateApplicationStatus(id, status) {
     }
 
 
+    // If rejected, make the cat available again
+    if (status === "Rejected" && application.cat_id) {
+
+        const { error: catError } =
+            await supabase
+                .from("cats")
+                .update({ status: "Available" })
+                .eq("id", application.cat_id);
+
+        if (catError) {
+
+            console.error(
+                "Cat status update error:",
+                catError
+            );
+
+            alert(
+                "Application was rejected, but the cat status could not be updated."
+            );
+
+            return;
+        }
+    }
+
+
     await loadApplications();
 }
-
-
-document.addEventListener("click", function (event) {
-
-   
-    if (event.target.classList.contains("approve-button")) {
-
-        const id =
-            event.target.dataset.id;
-
-        updateApplicationStatus(id, "Approved");
-    }
-
-
-    if (event.target.classList.contains("reject-button")) {
-
-        const id =
-            event.target.dataset.id;
-
-        updateApplicationStatus(id, "Rejected");
-    }
-
-});
-
-
-loadApplications();
