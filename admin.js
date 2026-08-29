@@ -316,8 +316,7 @@ async function updateApplicationStatus(id, status) {
         }
     }
 
-
-    // If rejected, make the cat available again
+// If rejected, mark the cat as Available
     if (status === "Rejected" && application.cat_id) {
 
         const { error: catError } =
@@ -340,7 +339,6 @@ async function updateApplicationStatus(id, status) {
             return;
         }
     }
-
 
     await loadApplications();
 }
